@@ -1,0 +1,4 @@
+.DS_Store
+
+# Local Claude Code tooling (dev preview server config)
+.claude/

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gomoku</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='12' cy='12' r='8' fill='%23111'/><circle cx='21' cy='21' r='8' fill='%23fff'/></svg>">
+</head>
+<body>
+
+<div class="app">
+  <header class="masthead">
+    <h1>Gomoku</h1>
+    <p>Five in a row &middot; 15&times;15</p>
+  </header>
+
+  <main class="layout">
+    <section class="stage">
+      <div class="board-frame">
+        <canvas id="board" width="600" height="600" role="grid"
+                aria-label="Gomoku board, 15 by 15"></canvas>
+        <div id="banner" class="banner" hidden>
+          <div class="banner-card">
+            <span class="banner-text">
+              <span class="banner-title" id="banner-title">Black wins</span>
+              <span class="banner-sub" id="banner-sub">Five in a row</span>
+            </span>
+            <button class="btn btn-primary" id="banner-again" type="button">Play again</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="panel">
+      <div class="scoreboard">
+        <div class="side" id="side-black">
+          <span class="stone stone-black" aria-hidden="true"></span>
+          <span class="side-body">
+            <span class="side-name">Black</span>
+            <span class="side-role" id="role-black">You</span>
+          </span>
+          <span class="side-score" id="score-black">0</span>
+        </div>
+        <div class="side" id="side-white">
+          <span class="stone stone-white" aria-hidden="true"></span>
+          <span class="side-body">
+            <span class="side-name">White</span>
+            <span class="side-role" id="role-white">Computer</span>
+          </span>
+          <span class="side-score" id="score-white">0</span>
+        </div>
+      </div>
+
+      <p class="status" id="status" role="status" aria-live="polite">Black to play</p>
+
+      <div class="controls">
+        <label class="field">
+          <span>Opponent</span>
+          <select id="mode">
+            <option value="ai-white">Computer plays White</option>
+            <option value="ai-black">Computer plays Black</option>
+            <option value="human">Two players</option>
+            <option value="ai-ai">Computer vs computer</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span>Difficulty</span>
+          <select id="level">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard" selected>Hard</option>
+          </select>
+        </label>
+
+        <div class="buttons">
+          <button class="btn" id="undo" type="button">Undo</button>
+          <button class="btn btn-primary" id="restart" type="button">New game</button>
+        </div>
+      </div>
+
+      <div class="history">
+        <div class="history-head">
+          <span>Moves</span>
+          <span id="move-count">0</span>
+        </div>
+        <ol id="move-list" class="move-list"></ol>
+      </div>
+
+      <p class="hint">Click an intersection to play. <kbd>U</kbd> undo &middot; <kbd>N</kbd> new game</p>
+    </aside>
+  </main>
+</div>
+
+<script src="js/board.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/ui.js"></script>
+</body>
+</html>

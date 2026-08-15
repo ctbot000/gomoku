@@ -1,7 +1,12 @@
 # Gomoku
 
 Five in a row on a 15×15 board, with a computer opponent. No build step, no
-dependencies — open `index.html` in a browser and play.
+dependencies.
+
+**[▶ Play it here](https://ctbot000.github.io/gomoku/)**
+
+Or clone and open `index.html` directly — there is nothing to install and no
+server to run:
 
 ```bash
 open index.html
